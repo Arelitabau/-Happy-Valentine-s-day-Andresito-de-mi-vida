@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Para mi Andresito lindo TE AMO💜</title>
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(135deg, #4b1d73, #8e44ad, #c39bd3);
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .carta {
+      background: rgba(255, 255, 255, 0.95);
+      padding: 35px;
+      border-radius: 25px;
+      width: 90%;
+      max-width: 420px;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+      animation: aparecer 1.2s ease;
+    }
+
+    h1 {
+      color: #6c3483;
+      margin-bottom: 15px;
+    }
+
+    p {
+      font-size: 18px;
+      color: #2c2c2c;
+      min-height: 110px;
+      line-height: 1.6;
+    }
+
+    button {
+      margin-top: 25px;
+      background: linear-gradient(135deg, #6c3483, #a569bd);
+      color: white;
+      border: none;
+      padding: 14px 30px;
+      border-radius: 30px;
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: 0 5px 15px rgba(108,52,131,0.5);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    button:hover {
+      transform: scale(1.08);
+      box-shadow: 0 8px 20px rgba(108,52,131,0.7);
+    }
+
+    @keyframes aparecer {
+      from { opacity: 0; transform: scale(0.7); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .corazon {
+      position: absolute;
+      color: #d2b4de;
+      font-size: 22px;
+      animation: flotar 5s linear infinite;
+    }
+
+    @keyframes flotar {
+      from { bottom: -30px; opacity: 1; }
+      to { bottom: 110vh; opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="carta">
+    <h1 id="titulo">Hola Andresito mi amor 💜</h1>
+    <p id="mensaje">
+      HAPPY VALENTINE´S DAY amorsote de mi vida, enserio no sabes la cantidad de felicidad que siento al estar contigo mi vida, de hecho no sabia que hacer amor pero se hacer esto nomas que lleva tiempito entonces hoy es 27 de diciembre amor pa que lleves la cuenta de cuando empece amor te amo y ojala de vdd ojala de guste amor y si no te gusta no me lo digas amor, TE AMOOOOOOO
+    </p>
+    <button onclick="siguiente()">Siguiente 💫</button>
+  </div>
+
+  <!-- Música -->
+  <audio id="musica" loop>
+    <source src="teamo.mp3.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    const mensajes = [
+      {
+        titulo: "Hola mi amor 💜",
+        texto: "Hice esta pequeña página solo para ti…"
+      },
+      {
+        titulo: "Gracias por estar conmigo✨",
+        texto: "Gracias por hacerme sentir muchas cosas a pesar de tenerte lejos te siento conmigo todo el tiempo y te ocupo para poder estar bien toda la vida mi amor enserio no es broma cuando te digo que mi vida es mejor al lado tuyo y que tu eres en realidad eso que me faltaba para ser feliz y me complementas de una manera que de verdad no se como explicartelo, estoy tan orgullosa del hombre que eres y de que seas tan mío mi vida de vdd te amoooooooo y se que mi corazón esta hecho para ti y que toda mi vida la quiero compartirn contigo, te amo mi vida."
+      },
+      {
+        titulo: "Tú 💞",
+        texto: "Tú eres mi lugar seguro y mi persona favorita y el hombre que quiero tener toda la vida a mi lado porque se que estoy hecha para ti (aunq no lo este dime que si porfa) te amo mi chiquito lindo y de verdad espero que Diosito nunca me aparte de tu vida porque en realidad me enamore de ti sin tocar tu piel y de verdad se que eso es mucho mejor que haberlo hecho porq se que mi alma, mi corazón y todo de mi esta completamente para ti y nada más para ti, te amo."
+      },
+      {
+        titulo: "Siempre 💜",
+        texto: "No importa lo que pase, siempre te voy a elegir y espero enserio que tambien tu lo hagas mi amor, se que no es facil estar conmigo y se que es de lo más complicado entenderme pero porfavor porfavor enserio te lo pido desde lo más profundo de mi pequeño grande corazón te pido de verdad que no me dejes sola y que te prometo que yo haría hasta lo imposible por dejar de ser quien soy por estar contigo se que no se hacer nada pero te prometo que voy a aprender a hacerlo quiero ser una buena mujer para ti porque se que tu eres un buen hombre para mi, si yo pudiera irme a vivir contigo yo te juro que no me la pensara ni un poco, pero tengo que terminar la carrera y te juro que en cuanto la termine yo voy a estar más cerca de ti de lo que tu te imaginas, se que tu tienes muchas cosas que hacer y que me apartas un espacio y te lo agradezco de todo corazón, TE AMOOOOOOOOO MUCHOOO."
+      },
+      {
+        titulo: "Con amor siempre mi vida 💌",
+        texto: "Esta carta es solo una prueba de todo lo que siento por ti y de verdad quisiera poder habertela dado fisicamente pero yo se que algún día voy a poder darte todas las cartas y notas del mundo, nunca dudes de mi fidelidad hacía a ti y que tú amor tú mi vida solo tú vas a existir siempre en mi vida, jamas habrá alguien que pueda llenar el espacio que tu tienes en mi corazoncito, TE AMOOOOO PARA TODA LA VIDA jamas olvides que aunq no estemos juntos, siempre toda la vida me vas a tener aquí (ojalá no pase) pero recuerda que nunca había estado tan enamorada de alguien como lo estoy de tí."
+      }
+    ];
+
+    let indice = 0;
+    let musicaIniciada = false;
+
+    function siguiente() {
+      // Inicia la música al primer click
+      if (!musicaIniciada) {
+        document.getElementById("musica").play();
+        musicaIniciada = true;
+      }
+
+      indice++;
+
+      if (indice < mensajes.length) {
+        document.getElementById("titulo").innerText = mensajes[indice].titulo;
+        document.getElementById("mensaje").innerText = mensajes[indice].texto;
+        crearCorazon();
+      } else {
+        document.querySelector("button").style.display = "none";
+        document.getElementById("mensaje").innerText = "I want you to see yourself through my eyes, and feel that nothing is more real than what we share.              te amo para siempre Andres, jamás lo olvides 💜";
+      }
+    }
+
+    function crearCorazon() {
+      const corazon = document.createElement("div");
+      corazon.classList.add("corazon");
+      corazon.innerText = "💜";
+      corazon.style.left = Math.random() * 100 + "vw";
+      corazon.style.animationDuration = (Math.random() * 2 + 3) + "s";
+      document.body.appendChild(corazon);
+
+      setTimeout(() => {
+        corazon.remove();
+      }, 5000);
+    }
+  </script>
+
+</body>
+</html>
